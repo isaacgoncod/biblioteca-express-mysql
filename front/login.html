@@ -8,23 +8,23 @@
     <title>Login</title>
   </head>
   <body>
-    <nav id="navbar">
-      <ul>
-        <li><a href="./login.html">Biblioteca</a></li>
-      </ul>
-    </nav>
-
-    <div class="form">
-      <div class="form-control">
-        <label for="matricula">Matricula:</label>
-        <input type="text" id="matricula" />
-      </div>
-      <div class="form-control">
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" />
-      </div>
-      <button onclick="autenticar()">Login</button>
-    </div>
+    <main>
+      <section id="img-login"></section>
+      <section>
+        <div class="form">
+          <div class="form-control">
+            <label for="matricula">Matricula:</label>
+            <input type="text" id="matricula" placeholder="Ex: 123456" />
+          </div>
+          <div class="form-control">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Ex: admin" />
+          </div>
+          <button onclick="autenticar()">Login</button>
+          <a href="">Saber mais?</a>
+        </div>
+      </section>
+    </main>
   </body>
   <script src="./js/login.js"></script>
 </html>
