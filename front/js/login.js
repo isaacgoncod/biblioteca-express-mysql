@@ -1,34 +1,31 @@
-const inpMatricula = document.querySelector("#matricula");
-const inpSenha = document.querySelector("#senha");
-
-const base = [
-  {
-    nome: "admin",
-    matricula: 123456,
-    senha: "admin",
-    salario: 1000,
-    id: 3,
-  },
-];
+const matricula = document.querySelector("#matricula");
+const senha = document.querySelector("#senha");
 
 function autenticar() {
-  let matricula = inpMatricula.value;
-  let senha = inpSenha.value;
+  let data = {
+    matricula: matricula.value,
+    senha: senha.value,
+  };
 
-  let usuario = base.find((user) => {
-    return user.matricula == matricula && user.senha == senha;
-  });
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
 
-  if (usuario != undefined) {
-    let info = {
-      id: usuario.id,
-      nome: usuario.nome,
-    };
+  fetch("http://localhost:3000/user/login", options)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((info) => {
+      if (info.id != undefined) {
+        localStorage.setItem("user", JSON.stringify(info));
 
-    localStorage.setItem("usuario", JSON.stringify(info));
-
-    window.location.href = "./form.html";
-  } else {
-    alert("Usuário e senha inválidos");
-  }
+        window.location.href = "../pages/form.html";
+      } else {
+        alert(info.msg);
+      }
+    });
 }

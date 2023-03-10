@@ -1,4 +1,4 @@
-@import url("./header.css");
+@import url("./global.css");
 
 main {
   width: 100vw;
@@ -7,8 +7,31 @@ main {
 }
 table {
   width: 80%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 15px 0px #185359;
 }
 th {
   width: 150px;
   border: 1px solid;
+}
+
+.btn-delete,
+.btn-edit {
+  width: 70px;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: #185359;
+  color: #f2be22;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+}
+.btn-delete:hover,
+.btn-edit:hover {
+  cursor: pointer;
+  background-color: #f2be22;
+  color: #185359;
+  transition: 0.2s;
 }

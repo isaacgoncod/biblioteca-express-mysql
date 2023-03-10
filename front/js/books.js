@@ -19,9 +19,22 @@ function montarTabela(vetor) {
     let col8 = document.createElement("td");
     let col9 = document.createElement("td");
 
+    let col10 = document.createElement("td");
+
+    let edit = document.createElement("button");
+    edit.innerHTML = "Editar";
+
+    edit.className = "btn-edit";
+
+    edit.addEventListener("click", ()=>{
+      window.location.href = "../pages/editBook.html"
+    })
+
     let del = document.createElement("button");
-    del.innerHTML = "[-]";
+    del.innerHTML = "Excluir";
     del.setAttribute("onclick", `excluirItem('${e.id}')`);
+
+    del.className = "btn-delete";
 
     col1.innerHTML = e.id;
     col2.innerHTML = `<a href='./editBook.html'>${e.title}</a>`;
@@ -36,7 +49,9 @@ function montarTabela(vetor) {
 
     col8.innerHTML = formatarMoeda(e.tax_day);
 
-    col9.appendChild(del);
+    col9.appendChild(edit);
+
+    col10.appendChild(del);
 
     linha.appendChild(col1);
     linha.appendChild(col2);
@@ -46,15 +61,16 @@ function montarTabela(vetor) {
     linha.appendChild(col6);
     linha.appendChild(col7);
     linha.appendChild(col8);
-
     linha.appendChild(col9);
+
+    linha.appendChild(col10);
 
     corpo.appendChild(linha);
   });
 }
 
 function excluirItem(i) {
-  if (confirm("Valida Exclusao"))
+  if (confirm("Você deseja EXCLUIR este livro?"))
     fetch(uri + "/delete/" + i, { method: "DELETE" })
       .then((resp) => resp.status)
       .then((resp) => {

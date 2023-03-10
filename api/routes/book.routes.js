@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const BookController = require("../controllers/BookController");
+const BookController = require("../controllers/book.controller");
 
 router.get("/test", (req, res) => {
   res.send("Book respondendo");

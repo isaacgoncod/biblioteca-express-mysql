@@ -11,24 +11,24 @@ class Book {
   }
 
   create() {
-    return `INSERT INTO livro VALUE(DEFAULT,'${this.title}','${this.author}',${this.price}, '${this.date_emprest}', '${this.date_prev_dev}', NULL, NULL)`;
+    return `INSERT INTO book VALUE(DEFAULT,'${this.title}','${this.author}',${this.price}, '${this.date_emprest}', '${this.date_prev_dev}', NULL, NULL)`;
   }
 
   read() {
-    if (this.id == undefined) return `SELECT * FROM livro`;
-    else return `SELECT * FROM livro WHERE id = ${this.id}`;
+    if (this.id == undefined) return `SELECT * FROM book`;
+    else return `SELECT * FROM book WHERE id = ${this.id}`;
   }
 
   update() {
     if (this.date_devolution == undefined) {
-      return `UPDATE livro SET title = '${this.title}', author = '${this.author}', price = ${this.price}, date_emprest = '${this.date_emprest}', date_prev_dev = '${this.date_prev_dev}', date_devolution = NULL, tax_day = NULL WHERE id = ${this.id}`;
+      return `UPDATE book SET title = '${this.title}', author = '${this.author}', price = ${this.price}, date_emprest = '${this.date_emprest}', date_prev_dev = '${this.date_prev_dev}', date_devolution = NULL, tax_day = NULL WHERE id = ${this.id}`;
     } else {
-      return `UPDATE livro SET title = '${this.title}', author = '${this.author}', price = ${this.price}, date_emprest = '${this.date_emprest}', date_prev_dev = '${this.date_prev_dev}', date_devolution = '${this.date_devolution}', tax_day = ${this.tax_day} WHERE id = ${this.id}`;
+      return `UPDATE book SET title = '${this.title}', author = '${this.author}', price = ${this.price}, date_emprest = '${this.date_emprest}', date_prev_dev = '${this.date_prev_dev}', date_devolution = '${this.date_devolution}', tax_day = ${this.tax_day} WHERE id = ${this.id}`;
     }
   }
 
   delete() {
-    return `DELETE FROM livro WHERE id = ${this.id}`;
+    return `DELETE FROM book WHERE id = ${this.id}`;
   }
 
   taxDay() {

@@ -1,29 +1,49 @@
-DROP DATABASE IF EXISTS biblioteca;
+DROP DATABASE IF EXISTS library;
 
-CREATE DATABASE biblioteca CHARSET = UTF8 COLLATE utf8_general_ci;
+CREATE DATABASE library CHARSET = UTF8 COLLATE utf8_general_ci;
 
-USE biblioteca;
+USE library;
 
 CREATE TABLE
-  livro (
+  user (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    matricula VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    salario FLOAT (10, 2) NOT NULL
+  );
+
+CREATE TABLE
+  book (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
-    price FLOAT (5, 2) NOT NULL,
+    price FLOAT (6, 2) NOT NULL,
     date_emprest DATE NOT NULL,
     date_prev_dev DATE NOT NULL,
     date_devolution DATE,
-    tax_day FLOAT (5, 2)
+    tax_day FLOAT (6, 2)
   );
 
 INSERT INTO
-  livro
+  user
 VALUES
   (
     DEFAULT,
-    "Férias de Veirão",
-    "Melissa Próspero",
-    80.55,
+    "Isaac Gonçalves",
+    "12345",
+    "admin",
+    3000
+  );
+
+INSERT INTO
+  book
+VALUES
+  (
+    DEFAULT,
+    "Watchmen",
+    "Alan Moore",
+    117.55,
     "2023-02-25",
     "2023-03-10",
     NULL,
