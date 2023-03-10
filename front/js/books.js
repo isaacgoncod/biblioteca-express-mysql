@@ -37,7 +37,7 @@ function montarTabela(vetor) {
     del.className = "btn-delete";
 
     col1.innerHTML = e.id;
-    col2.innerHTML = `<a href='./editBook.html'>${e.title}</a>`;
+    col2.innerHTML = e.title
     col3.innerHTML = e.author;
     col4.innerHTML = formatarMoeda(e.price);
     col5.innerHTML = formatarData(e.date_emprest);

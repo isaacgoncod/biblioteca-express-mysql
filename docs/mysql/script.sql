@@ -51,9 +51,19 @@ VALUES
   ),
   (
     DEFAULT,
-    "Férias de Inverno",
-    "Melissa Próspero",
-    90.55,
+    "Antes de Watchmen: Dr. Manhattam",
+    "Alan Moore",
+    105.55,
+    "2023-02-25",
+    "2023-03-10",
+    NULL,
+    NULL
+  ),
+  (
+    DEFAULT,
+    "Antes de Watchmen: Ozymandias",
+    "Alan Moore",
+    110.55,
     "2023-02-25",
     "2023-03-10",
     NULL,
